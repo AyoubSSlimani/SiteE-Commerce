@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Livre",
+        "price": 10.99,
+        "imgUrl": "/imgs/book.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Ordinateur",
+        "price": 1199,
+        "imgUrl": "/imgs/computer.jpg"
+    },  
+    {
+        "id": 3,
+        "name": "Voiture",
+        "price": 3000,
+        "imgUrl": "/imgs/car.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Banane",
+        "price": 1,
+        "imgUrl": "/imgs/banana.jpg"
+    }
+
+]
