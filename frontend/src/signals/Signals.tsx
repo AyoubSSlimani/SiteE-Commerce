@@ -3,8 +3,8 @@ import { ArticleType } from "../App";
 import axios from "axios";
 
 // LOGGED
-export const userID = signal<string>(await getAuthentification());
-export const userInfo = signal(userID.value ? await getUserInfo() : null);
+export const userID = signal<Promise<string> | null>(getAuthentification());
+export const userInfo = signal(userID.value ? getUserInfo() : null);
 
 async function getAuthentification() {
   try {
@@ -17,7 +17,7 @@ async function getAuthentification() {
       return response.data;
     }
   } catch (err: any) {
-    return "";
+    return null;
   }
 }
 
