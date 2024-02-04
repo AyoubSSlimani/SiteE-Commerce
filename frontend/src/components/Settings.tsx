@@ -1,4 +1,3 @@
-import React from "react";
 import DeleteUser from "./DeleteUser";
 import Logout from "./Logout";
 

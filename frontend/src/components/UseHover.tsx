@@ -3,10 +3,10 @@ import { userInfo } from "../signals/Signals";
 export function useHover(ref: any) {
   const [isHovered, setIsHovered] = useState(false);
 
-  function handleHover(e: any) {
+  function handleHover() {
     setIsHovered(true);
   }
-  function handleOutside(e: any) {
+  function handleOutside() {
     setIsHovered(false);
   }
   useEffect(() => {

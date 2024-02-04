@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import { useState } from "react";
 import { userInfo } from "../signals/Signals";
 import cookie from "js-cookie";
 
@@ -17,6 +17,9 @@ export default function DeleteUser() {
         method: "delete",
         url: `http://localhost:9999/api/user/delete/${userInfo.value._id}`,
       });
+      if (response) {
+        console.log(response);
+      }
     } catch (err: any) {
       console.log(err);
     } finally {
