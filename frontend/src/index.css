@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+.input {
+  @apply outline-blue-300 border-2 border-gray-300 bg-gray-200 px-4 py-2;
+}
