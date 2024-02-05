@@ -47,6 +47,7 @@ module.exports.logout = async (req, res) => {
 };
 
 module.exports.deleteUser = async (req, res) => {
+  res.cookie("jwt", "", { maxAge: 1, sameSite: "None", secure: true });
   try {
     const userId = req.params.id;
     const deletedUser = await UserModel.findByIdAndDelete(userId);
