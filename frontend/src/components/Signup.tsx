@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -40,9 +41,7 @@ export default function Signup() {
   }
   return (
     <>
-      {loading && (
-        <div className="z-50 absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-transparent border-2 border-blue-500 animate-spin" />
-      )}
+      {loading && <Loading color="blue" />}
       <h3 className="font-semibold text-lg uppercase">Inscription</h3>
       <p className="text-xs">Saisissez une adresse email et un mot de passe</p>
       <form

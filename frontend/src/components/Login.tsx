@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function Login() {
   const [password, setPassword] = useState("");
@@ -41,9 +42,7 @@ export default function Login() {
 
   return (
     <>
-      {loading && (
-        <div className="z-50 absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-transparent border-2 border-blue-500 animate-spin" />
-      )}
+      {loading && <Loading color="blue" />}
       <h3 className="font-semibold text-lg uppercase">Connexion</h3>
       <form
         className="font-serif text-sm flex flex-col gap-3"

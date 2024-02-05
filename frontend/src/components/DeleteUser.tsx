@@ -3,7 +3,8 @@ import { useState } from "react";
 import { userInfo } from "../signals/Signals";
 import cookie from "js-cookie";
 import { useNavigate } from "react-router-dom";
-
+import ReactLoading from "react-loading";
+import Loading from "./Loading";
 export default function DeleteUser() {
   const navigate = useNavigate();
   const removeCookie = (key: string) => {
@@ -41,9 +42,7 @@ export default function DeleteUser() {
   }
   return (
     <>
-      {loading && (
-        <div className="z-50 absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-transparent border-2 border-blue-500 animate-spin" />
-      )}
+      {loading && <Loading color="blue" />}
       <button
         type="button"
         className=" text-black underline hover:no-underline p-2 rounded-lg text-sm"

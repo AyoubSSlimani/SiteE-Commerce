@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import cookie from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import Loading from "./Loading";
 
 export default function Logout() {
   const [loading, setLoading] = useState(false);
@@ -29,9 +30,7 @@ export default function Logout() {
   }
   return (
     <>
-      {loading && (
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-10 rounded-full bg-transparent border-2 border-blue-500 animate-spin" />
-      )}
+      {loading && <Loading color="blue" />}
       <button
         className="text-black underline hover:no-underline  p-2 rounded-lg text-sm duration-200"
         onClick={Deconnexion}
