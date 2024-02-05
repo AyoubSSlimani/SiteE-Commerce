@@ -11,9 +11,12 @@ export default function SuccessPayment() {
           className="w-80 h-44 max-md:w-60 max-md:h-32"
         />
         <p className="text-center w-96 max-md:w-80 max-sm:w-5/6">
-          <strong>{TrimEmail(userInfo.value.email)}</strong>, nous vous
-          remercions pour votre achat sur notre site ! Nous apprécions votre
-          confiance et sommes ravis de vous avoir parmi nos clients. <br />
+          <strong>
+            {TrimEmail(userInfo.value?.email ? userInfo.value.email : "")}
+          </strong>
+          , nous vous remercions pour votre achat sur notre site ! Nous
+          apprécions votre confiance et sommes ravis de vous avoir parmi nos
+          clients. <br />
           <br />
           <p>
             Aucun prélèvement ne sera effectué et aucun email ne sera envoyé, ce

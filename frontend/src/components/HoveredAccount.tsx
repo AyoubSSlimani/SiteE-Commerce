@@ -15,7 +15,10 @@ export default function HoveredAccount() {
       className="p-4 cursor-default absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-full w-56 h-52 bg-white shadow-sm shadow-gray-400 flex flex-col items-center gap-4 text-black text-sm"
     >
       <h4>
-        Hello, <strong>{TrimEmail(userInfo.value.email)}</strong>
+        Hello,{" "}
+        <strong>
+          {TrimEmail(userInfo.value?.email ? userInfo.value.email : "")}
+        </strong>
       </h4>
       <Logout />
 

@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.tsx";
 import Navbar from "./components/Navbar.tsx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Auth from "./components/Auth.tsx";
-import { userInfo } from "./signals/Signals.tsx";
+import { Preparation, userInfo } from "./signals/Signals.tsx";
 import Compte from "./components/Compte.tsx";
 import Settings from "./components/Settings.tsx";
 import SuccessPayment from "./components/SuccessPayment.tsx";
@@ -15,11 +15,17 @@ export type ArticleType = {
   quantity?: number;
   category: string;
 };
+export type UserInfoType = {
+  _id: string;
+  email: string;
+};
 
 export default function App() {
   const [showPanier, setShowPanier] = useState(false);
-  // Le tableau vide indique que cet effet ne dépend d'aucune dépendance
 
+  useEffect(() => {
+    Preparation();
+  }, []);
   return (
     <>
       <Navbar setShowPanier={setShowPanier} showPanier={showPanier} />

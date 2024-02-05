@@ -64,7 +64,7 @@ export default function Navbar({
           >
             <AiOutlineUser className=" rounded-full h-10 w-10 max-sm:h-8 max-sm:w-8 hover:text-gray-200 duration-300" />
             <p className="absolute left-1/2 -bottom-4 -translate-x-1/2 whitespace-nowrap text-xxs">
-              {TrimEmail(userInfo.value.email)}
+              {TrimEmail(userInfo.value?.email)}
             </p>
             {isHovered && <HoveredAccount />}
           </Link>

@@ -1,12 +1,18 @@
 import { effect, signal } from "@preact/signals-react";
-import { ArticleType } from "../App";
+import { ArticleType, UserInfoType } from "../App";
 import axios from "axios";
 
 // LOGGED
-export const userID = signal<Promise<string> | null>(getAuthentification());
-export const userInfo = signal(userID.value ? getUserInfo() : null);
 
-async function getAuthentification() {
+export const userID = signal<string>("");
+export const userInfo = signal<null | UserInfoType>(null);
+
+export async function Preparation() {
+  userID.value = await getAuthentification();
+  userInfo.value = userID.value ? await getUserInfo() : null;
+}
+
+export async function getAuthentification() {
   try {
     const response = await axios({
       method: "get",
@@ -17,11 +23,11 @@ async function getAuthentification() {
       return response.data;
     }
   } catch (err: any) {
-    return null;
+    return "";
   }
 }
 
-async function getUserInfo() {
+export async function getUserInfo() {
   try {
     const response = await axios({
       method: "get",
