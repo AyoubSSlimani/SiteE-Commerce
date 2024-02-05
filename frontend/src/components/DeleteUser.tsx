@@ -3,10 +3,10 @@ import { useState } from "react";
 import { userInfo } from "../signals/Signals";
 import cookie from "js-cookie";
 
-const removeCookie = (key: string) => {
-  cookie.remove(key, { expires: 1 });
-};
 export default function DeleteUser() {
+  const removeCookie = (key: string) => {
+    cookie.remove(key, { expires: 0 });
+  };
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
