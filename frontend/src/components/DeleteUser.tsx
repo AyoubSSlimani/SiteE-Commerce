@@ -3,7 +3,6 @@ import { useState } from "react";
 import { userInfo } from "../signals/Signals";
 import cookie from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import ReactLoading from "react-loading";
 import Loading from "./Loading";
 export default function DeleteUser() {
   const navigate = useNavigate();
