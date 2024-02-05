@@ -2,8 +2,10 @@ import axios from "axios";
 import { useState } from "react";
 import { userInfo } from "../signals/Signals";
 import cookie from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export default function DeleteUser() {
+  const navigate = useNavigate();
   const removeCookie = (key: string) => {
     cookie.remove(key, { expires: 1 });
   };
@@ -31,6 +33,7 @@ export default function DeleteUser() {
         setIsDeleted(true);
         removeCookie("jwt");
         setTimeout(() => {
+          navigate("/");
           window.location.reload();
           setLoading(false);
         }, 2000);
