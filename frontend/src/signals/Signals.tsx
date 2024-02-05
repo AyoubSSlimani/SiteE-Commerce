@@ -16,7 +16,7 @@ export async function getAuthentification() {
   try {
     const response = await axios({
       method: "get",
-      url: `http://${import.meta.env.VITE_SERVER_URL}/jwtid`,
+      url: `${import.meta.env.VITE_SERVER_URL}/jwtid`,
       withCredentials: true,
     });
     if (response) {
