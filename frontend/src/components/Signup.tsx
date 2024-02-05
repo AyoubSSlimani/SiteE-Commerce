@@ -14,13 +14,13 @@ export default function Signup() {
       setLoading(true);
       const response = await axios({
         method: "post",
-        url: "http://localhost:9999/api/user/register",
+        url: `${import.meta.env.VITE_SERVER_URL}/api/user/register`,
         data: { email, password },
       });
       if (response) {
         const response2 = await axios({
           method: "post",
-          url: "http://localhost:9999/api/user/login",
+          url: `${import.meta.env.VITE_SERVER_URL}/api/user/login`,
           data: { email, password },
           withCredentials: true,
         });

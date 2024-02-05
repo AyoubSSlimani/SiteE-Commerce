@@ -15,7 +15,7 @@ export default function Login() {
         setLoading(true);
         const response = await axios({
           method: "post",
-          url: "http://localhost:9999/api/user/login",
+          url: `${import.meta.env.VITE_SERVER_URL}/api/user/login`,
           data: { email, password },
           withCredentials: true,
         });

@@ -14,7 +14,7 @@ export default function Logout() {
       setLoading(true);
       const response = await axios({
         method: "get",
-        url: "http://localhost:9999/api/user/logout",
+        url: `${import.meta.env.VITE_SERVER_URL}/api/user/logout`,
       });
       console.log(response);
     } catch (err: any) {

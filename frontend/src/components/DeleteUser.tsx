@@ -15,7 +15,9 @@ export default function DeleteUser() {
       setLoading(true);
       const response = await axios({
         method: "delete",
-        url: `http://localhost:9999/api/user/delete/${userInfo?.value?._id}`,
+        url: `${import.meta.env.VITE_SERVER_URL}/api/user/delete/${
+          userInfo?.value?._id
+        }`,
       });
       if (response) {
         console.log(response);

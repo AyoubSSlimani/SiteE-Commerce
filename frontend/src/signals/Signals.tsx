@@ -16,7 +16,7 @@ export async function getAuthentification() {
   try {
     const response = await axios({
       method: "get",
-      url: `http://localhost:9999/jwtid`,
+      url: `http://${import.meta.env.VITE_SERVER_URL}/jwtid`,
       withCredentials: true,
     });
     if (response) {
@@ -31,7 +31,7 @@ export async function getUserInfo() {
   try {
     const response = await axios({
       method: "get",
-      url: `http://localhost:9999/api/user/${userID.value}`,
+      url: `${import.meta.env.VITE_SERVER_URL}/api/user/${userID.value}`,
       withCredentials: true,
     });
     if (response) {
