@@ -11,27 +11,29 @@ export default function DeleteUser() {
   const [loading, setLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
   async function deleteAccount() {
-    try {
-      setLoading(true);
-      const response = await axios({
-        method: "delete",
-        url: `${import.meta.env.VITE_SERVER_URL}/api/user/delete/${
-          userInfo?.value?._id
-        }`,
+    setLoading(true);
+    axios({
+      method: "delete",
+      url: `${import.meta.env.VITE_SERVER_URL}/api/user/delete/${
+        userInfo?.value?._id
+      }`,
+    })
+      .then((response) => {
+        if (response) {
+          console.log(response);
+        }
+      })
+      .catch((err: any) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setIsDeleted(true);
+        removeCookie("jwt");
+        setTimeout(() => {
+          window.location.reload();
+          setLoading(false);
+        }, 2000);
       });
-      if (response) {
-        console.log(response);
-      }
-    } catch (err: any) {
-      console.log(err);
-    } finally {
-      setIsDeleted(true);
-      removeCookie("jwt");
-      setTimeout(() => {
-        window.location.reload();
-        setLoading(false);
-      }, 2000);
-    }
   }
   return (
     <>

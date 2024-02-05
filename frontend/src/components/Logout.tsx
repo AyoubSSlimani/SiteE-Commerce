@@ -10,21 +10,21 @@ export default function Logout() {
   };
   const navigate = useNavigate();
   async function Deconnexion() {
-    try {
-      setLoading(true);
-      const response = await axios({
-        method: "get",
-        url: `${import.meta.env.VITE_SERVER_URL}/api/user/logout`,
+    setLoading(true);
+    axios({
+      method: "get",
+      url: `${import.meta.env.VITE_SERVER_URL}/api/user/logout`,
+    })
+      .then((response) => {
+        removeCookie("jwt");
+        setLoading(false);
+        console.log(response);
+        navigate("/");
+        window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err);
       });
-      console.log(response);
-    } catch (err: any) {
-      console.log(err);
-    } finally {
-      removeCookie("jwt");
-      setLoading(false);
-      navigate("/");
-      window.location.reload();
-    }
   }
   return (
     <>
