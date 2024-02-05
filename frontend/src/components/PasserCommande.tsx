@@ -3,7 +3,6 @@ import { products, userInfo } from "../signals/Signals";
 import { useNavigate } from "react-router-dom";
 
 export default function PasserCommande() {
-  console.log(products.value);
   const navigate = useNavigate();
   async function CreateStripeSession() {
     try {
