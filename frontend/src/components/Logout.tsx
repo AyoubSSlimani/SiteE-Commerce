@@ -14,6 +14,7 @@ export default function Logout() {
     axios({
       method: "get",
       url: `${import.meta.env.VITE_SERVER_URL}/api/user/logout`,
+      withCredentials: true,
     })
       .then((response) => {
         removeCookie("jwt");

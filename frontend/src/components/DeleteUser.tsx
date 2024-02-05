@@ -14,6 +14,7 @@ export default function DeleteUser() {
     setLoading(true);
     axios({
       method: "delete",
+      withCredentials: true,
       url: `${import.meta.env.VITE_SERVER_URL}/api/user/delete/${
         userInfo?.value?._id
       }`,
