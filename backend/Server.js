@@ -34,26 +34,6 @@ server.post("/create-checkout-session", shop);
 
 server.use("/api/user/", userRoutes);
 
-server.post(
-  "/webhook",
-  bodyParser.raw({ type: "application/json" }),
-  (request, response) => {
-    const payload = request.body;
-    const sig = request.headers["stripe-signature"];
-
-    console.log("hello");
-    let event;
-
-    try {
-      event = stripe.webhooks.constructEvent(payload, sig, endpointSecret);
-    } catch (err) {
-      return response.status(400).send(`Webhook Error: ${err.message}`);
-    }
-
-    response.status(200).end();
-  }
-);
-
 server.listen(port, () => {
   console.log(`Serveur en cours d'exécution sur le port ${port}`);
 });

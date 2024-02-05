@@ -12,7 +12,7 @@ export default function HoveredAccount() {
         e.stopPropagation();
       }}
       role="button"
-      className="p-4 cursor-default absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-full w-56 h-52 bg-white shadow-sm shadow-gray-400 flex flex-col items-center gap-4 text-black text-sm"
+      className="px-10 py-6 max-md:px-4 cursor-default absolute -bottom-3 left-1/2 -translate-x-1/2 translate-y-full bg-white shadow-sm shadow-gray-400 flex flex-col items-center justify-center gap-4 text-black text-sm"
     >
       <h4>
         Hello,{" "}
