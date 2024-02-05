@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 export default function Logout() {
   const [loading, setLoading] = useState(false);
   const removeCookie = (key: string) => {
-    cookie.remove(key, { expires: 0 });
+    cookie.remove(key, { expires: 1 });
   };
   const navigate = useNavigate();
   async function Deconnexion() {

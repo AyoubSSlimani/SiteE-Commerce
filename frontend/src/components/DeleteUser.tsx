@@ -5,7 +5,7 @@ import cookie from "js-cookie";
 
 export default function DeleteUser() {
   const removeCookie = (key: string) => {
-    cookie.remove(key, { expires: 0 });
+    cookie.remove(key, { expires: 1 });
   };
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);

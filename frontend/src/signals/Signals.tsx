@@ -20,6 +20,7 @@ export async function getAuthentification() {
       withCredentials: true,
     });
     if (response) {
+      console.log("ok get auth");
       return response.data;
     }
   } catch (err: any) {
