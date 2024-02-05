@@ -4,6 +4,7 @@ import { userInfo } from "../signals/Signals";
 import cookie from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import Loading from "./Loading";
+import { TrimEmail } from "../utility/Utility";
 export default function DeleteUser() {
   const navigate = useNavigate();
   const removeCookie = (key: string) => {
@@ -12,32 +13,39 @@ export default function DeleteUser() {
   const [openModal, setOpenModal] = useState(false);
   const [loading, setLoading] = useState(false);
   const [isDeleted, setIsDeleted] = useState(false);
+  const [isDemo, setIsDemo] = useState(false);
   async function deleteAccount() {
-    setLoading(true);
-    axios({
-      method: "delete",
-      withCredentials: true,
-      url: `${import.meta.env.VITE_SERVER_URL}/api/user/delete/${
-        userInfo?.value?._id
-      }`,
-    })
-      .then((response) => {
-        if (response) {
-          console.log(response);
-        }
+    if (
+      TrimEmail(userInfo.value?.email ? userInfo.value.email : "") !== "demo"
+    ) {
+      setLoading(true);
+      axios({
+        method: "delete",
+        withCredentials: true,
+        url: `${import.meta.env.VITE_SERVER_URL}/api/user/delete/${
+          userInfo?.value?._id
+        }`,
       })
-      .catch((err: any) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setIsDeleted(true);
-        removeCookie("jwt");
-        setTimeout(() => {
-          navigate("/");
-          window.location.reload();
-          setLoading(false);
-        }, 2000);
-      });
+        .then((response) => {
+          if (response) {
+            console.log(response);
+          }
+        })
+        .catch((err: any) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setIsDeleted(true);
+          removeCookie("jwt");
+          setTimeout(() => {
+            navigate("/");
+            window.location.reload();
+            setLoading(false);
+          }, 2000);
+        });
+    } else {
+      setIsDemo(true);
+    }
   }
   return (
     <>
@@ -79,6 +87,11 @@ export default function DeleteUser() {
               <span className="text-green-600 text-center">
                 Votre compte a bien été supprimé définitivement <br /> La page
                 va se recharger dans 2 secondes
+              </span>
+            )}
+            {isDemo && (
+              <span className="text-red-600 text-center">
+                Le compte demo ne peut être supprimé.
               </span>
             )}
           </div>
