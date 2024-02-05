@@ -69,7 +69,7 @@ export default function Panier({
               <div>
                 Quantité de produit: <strong>{completedCount}</strong>{" "}
               </div>
-              <PasserCommande />
+              <PasserCommande setShowPanier={setShowPanier} />
             </div>
             <div className="text-lg m-3">
               <h2>Votre sélection d'articles</h2>

@@ -2,7 +2,11 @@ import axios from "axios";
 import { products, userInfo } from "../signals/Signals";
 import { useNavigate } from "react-router-dom";
 
-export default function PasserCommande() {
+export default function PasserCommande({
+  setShowPanier,
+}: {
+  setShowPanier: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   const navigate = useNavigate();
   async function CreateStripeSession() {
     try {
@@ -38,7 +42,10 @@ export default function PasserCommande() {
         <button
           type="button"
           className="bg-yellow-500 text-white px-4 py-2 hover:bg-yellow-400 duration-200 rounded-lg"
-          onClick={() => navigate("/log")}
+          onClick={() => {
+            setShowPanier(false);
+            navigate("/log");
+          }}
         >
           Passer commande
         </button>
