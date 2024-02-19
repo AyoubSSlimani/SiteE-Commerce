@@ -78,7 +78,9 @@ export default function Navbar({
         )}
       </div>
 
-      {showPanier && <Panier setShowPanier={setShowPanier} />}
+      {showPanier && (
+        <Panier setShowPanier={setShowPanier} showPanier={showPanier} />
+      )}
       {showVolet && <Volet setShowVolet={setShowVolet} />}
     </nav>
   );

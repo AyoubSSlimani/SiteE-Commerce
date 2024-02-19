@@ -10,8 +10,10 @@ import PasserCommande from "../components/PasserCommande";
 
 export default function Panier({
   setShowPanier,
+  showPanier,
 }: {
   setShowPanier: React.Dispatch<React.SetStateAction<boolean>>;
+  showPanier: boolean;
 }) {
   // FONCTION QUI GERE LE CLIC EN DEHORS DU PANIER
   function useOutsideAlerter(ref: any) {
@@ -50,8 +52,8 @@ export default function Panier({
     <div className={`fixed top-0 right-0 h-screen w-screen backdrop-blur-xs`}>
       <div
         ref={wrapperRef}
-        className="flex flex-col items-center absolute top-0 right-0 py-12  translate-x-full overflow-y-auto h-screen w-1/3 max-md:w-2/3 max-sm:w-full text-black bg-white max-md:bg-white/[.97] animate-trans shadow-lg shadow-black 
-        "
+        className="flex flex-col items-center absolute top-0 right-0 py-12  translate-x-full overflow-y-auto h-screen w-1/3 max-md:w-2/3 max-sm:w-full text-black bg-white max-md:bg-white/[.97] ${
+           animate-trans  shadow-lg shadow-black "
       >
         {completedCount > 0 && (
           <>
